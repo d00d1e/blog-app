@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const navLinks = [
   {
@@ -22,12 +23,16 @@ const navLinks = [
 export default function Navigation() {
   return (
     <nav className="site-navigation">
-      <span>Mind Seed</span>
-      <ul>
-        {navLinks.map((link, i) => (
-          <li key={i}>{link.title}</li>
-        ))}
-      </ul>
+      <span className="menu-title">Mind Seed</span>
+      <div>
+        <ul>
+          {navLinks.map((link, i) => (
+            <li key={i}>
+              <Link to={link.path}>{link.title}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </nav>
   );
 }
