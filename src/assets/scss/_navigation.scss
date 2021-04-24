@@ -6,12 +6,37 @@
   justify-content: space-between;
   color: $text-color;
 
-  span {
+  .ion-ios-menu {
+    font-size: 36px;
+    width: 65px;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 15px;
+    display: none;
+  }
+
+  .menu-title {
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 500;
     display: flex;
     align-items: center;
     margin-left: 30px;
+  }
+
+  .menu-content-container {
+    display: flex;
+    align-items: center;
+    padding-right: 30px;
+
+    .ant-avatar {
+      background-color: $background;
+      border: 1px solid $border;
+    }
+
+    .menu-avatar-name {
+      font-size: 18px;
+      margin-left: 15px;
+    }
   }
 
   ul {
@@ -21,8 +46,9 @@
     padding-inline-start: 0;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     list-style: none;
-    margin-right: 20px;
+    padding: 0 20px 0 50px;
 
     a {
       text-decoration: none;
@@ -34,6 +60,58 @@
       &:hover {
         color: $text-link;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .site-navigation {
+    .menu-content-container {
+      flex-direction: column-reverse;
+      width: 300px;
+      height: calc(100% - 65px);
+      background: #fff;
+      position: absolute;
+      top: 65px;
+      left: -300px;
+      transition: 300ms ease left;
+      padding: 30px;
+
+      &.active {
+        left: 0px;
+      }
+
+      a {
+        width: 100%;
+        padding: 0;
+      }
+
+      ul,
+      li,
+      .menu-avatar-container {
+        width: 100%;
+      }
+
+      ul {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 0;
+        padding-top: 20px;
+      }
+
+      li {
+        height: 65px;
+        display: flex;
+        align-items: center;
+      }
+
+      .menu-avatar-container {
+        padding-top: 20px;
+      }
+    }
+
+    .ion-ios-menu {
+      display: flex;
     }
   }
 }

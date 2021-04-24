@@ -12,10 +12,15 @@ import Navigation from "./components/Navigation";
 import "./assets/scss/base.scss";
 
 export default function App() {
+  const user = {
+    firstName: "Moose",
+    lastName: "Lee",
+  };
+
   return (
     <Router>
       <div className="App">
-        <Navigation />
+        <Navigation user={user} />
         <Switch>
           <Route path="/:page" component={PageRenderer} />
           <Route path="/" reder={() => <Redirect to="/home" />} />
