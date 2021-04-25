@@ -1,0 +1,11 @@
+.post-masonry {
+  display: grid;
+  grid-gap: 30px;
+}
+
+@media screen and (max-width: 900px) {
+  .post-masonry {
+    display: flex;
+    flex-direction: column;
+  }
+}
